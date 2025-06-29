@@ -2,7 +2,7 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return (
-    <div className="min-h-screen flex mt-[-30]">
+    <div className="min-h-screen flex">
       <div className="hidden lg:flex w-3/5 relative bg-gray-900">
         <img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
