@@ -4,7 +4,7 @@ const Provider = ({ children }) => {
   return (
     <div>
       <Header />
-      <div className="mt-15">{children}</div>
+      <div className="mt-20">{children}</div>
     </div>
   );
 };

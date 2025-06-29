@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import GoogleMapSection from "./GoogleMapSection";
 import VillageList from "./Listing";
+import { Bot, MessageSquare } from "lucide-react";
+import { redirect } from "next/dist/server/api-utils";
 
 const VillageMapView = () => {
   const [allVillages, setAllVillages] = useState([]);
@@ -202,6 +204,14 @@ const VillageMapView = () => {
 
   return (
     <div className="relative">
+      {/* Floating Chat Bot Button */}
+      <button
+        className="fixed bottom-8 right-8 z-50 bg-primary text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center hover:bg-primary/90 transition-all border-4 border-white"
+        aria-label="Open Chat Bot"
+        onClick={() => (window.location.href = "http://localhost:5000/")}
+      >
+        <Bot size={32} />
+      </button>
       <div className="hidden md:flex">
         <div className="w-full pr-[350px] lg:pr-[550px] xl:pr-[650px]">
           <VillageList

@@ -66,13 +66,6 @@ const FilterSection = ({
         </SheetHeader>
 
         <div className="px-3 py-4 grid grid-cols-1 gap-4">
-          {/* State */}
-          <Input
-            placeholder="State"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          />
-
           {/* District */}
           <Input
             placeholder="District"

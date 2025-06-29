@@ -34,7 +34,6 @@ const GoogleMapSection = ({ listing, coordinates }) => {
 
     listing?.forEach((village) => {
       if (!village.latitude || !village.longitude) return;
-
       const el = document.createElement("div");
       el.className = "custom-marker";
       el.style.width = "30px";
@@ -53,16 +52,30 @@ const GoogleMapSection = ({ listing, coordinates }) => {
       function createPopupDOM(village) {
         const container = document.createElement("div");
         container.className =
-          "rounded-lg overflow-hidden text-gray-700 text-sm";
-        container.style.width = "230px";
+          "rounded-lg overflow-hidden shadow-lg text-gray-700 text-sm";
+        container.style.width = "240px";
+        container.style.background = "#ffffff";
+        container.style.border = "1px solid #e5e7eb"; // subtle border
+        container.style.padding = "12px";
+
         container.innerHTML = `
-          <div class="space-y-2">
-            <h2 class="text-lg font-semibold text-black">${village.gram_panchayat}</h2>
-            <p class="text-gray-600">${village.block_tehsil}, ${village.district}, ${village.state}</p>
-            <p class="text-gray-600">Population: ${village.population_2011}</p>
-            <p class="text-gray-600">Nearby: ${village.nearest_town || "N/A"}</p>
-          </div>
-        `;
+    <div class="space-y-2">
+      <h2 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin: 0;">
+        ${village.gram_panchayat}
+      </h2>
+      <p style="font-size: 13px; color: #4b5563; margin: 0;">
+        ${village.block_tehsil}, ${village.district}, ${village.state}
+      </p>
+      <div style="border-top: 1px solid #e5e7eb; margin: 8px 0;"></div>
+      <p style="font-size: 13px; margin: 0;">
+        <strong>Population:</strong> ${village.population_2011 || "N/A"}
+      </p>
+      <p style="font-size: 13px; margin: 0;">
+        <strong>Nearby:</strong> ${village.nearest_town || "N/A"}
+      </p>
+    </div>
+  `;
+
         return container;
       }
 

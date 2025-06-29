@@ -30,8 +30,8 @@ const VillageList = ({
   return (
     <div>
       {/* Search & Filters */}
-      <div className="p-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-2">
-        <div className="w-auto sm:w-full">
+      <div className="p-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-2 mb-2">
+        <div className="w-auto sm:w-full ">
           <GoogleAddressSearch
             onSelectAddress={(value) => {
               console.log("Selected Address:", value);
@@ -82,7 +82,7 @@ const VillageList = ({
         {listing?.length > 0
           ? listing.map((item, index) => (
               <Link
-                href={`/village/${item.id}`}
+                href={`/edit-listing/${item.id}`}
                 key={index}
                 target="_blank"
                 className="block"
